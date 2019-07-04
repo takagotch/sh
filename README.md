@@ -34,6 +34,65 @@ docker build -t my:tag -f cmd/shfmt/Dockerfile .
 ```py
 from sh import ifconfig
 print ifconfig("eth0")
+
+sh.ls("-l", "/tmp", color="never")
+
+try:
+  sh.ls("/doent/exist")
+except sh.ErroreturnCode_2:
+  print("directory doesn't exist")
+
+sh.ls(_out="/tmp/dir_contents")
+
+with open("/tmp/dir_contents", "w") as h:
+  sh.ls(_out=h)
+from io import StringIO
+buf = String()
+sh.ls(_out=buf)
+
+my_ls = sh.ls.bake("-l")
+
+my_ls("/tmp")
+sh.ls("-l", "/tmp")
+
+sh.wc(sh.ls("-l"), "-l")
+
+sh.git("show", "HEAD")
+sh.git.show("HEAD")
+
+p = sh.find("-name", "sh.py", _bg=True)
+p.wait()
+
+from sh import ifconfig
+print(ifconfig("wlan0"))
+
+from sh import tar
+tar("cvf", "/tmp/test.tar", "/my/home/directory")
+
+from sh import tar
+tar("cvf /tmp/test/tar /my/home/directory")
+
+curl("http://duckduckgo.com/", o="page.html", silent=True)
+curl("http://duckduckgo.com/", "-o", "page.html", "--silent")
+adduser("amoffat", system=True, shell="/bin/bash", no_create_home=True)
+adduser("amoffat", "--system", "--shell", "/bin/bash", "--no-create-home")
+
+output = ls("/")
+print(output.exit_code)
+
+try:
+  print(ls("/some/non-existant/folder"))
+except ErrorReturnCode_2:
+  print("folder doesn't exist!")
+  create_the_folder()
+except ErrorReturnCode:
+  print("unknown error")
+
+try:
+  p = sh.sleep(3, _bg=True)
+  p.kill()
+except sh.SignalException_SIGKILL:
+  print("killed")
 ```
 
 ```sh
