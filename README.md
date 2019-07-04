@@ -29,10 +29,18 @@ echo '$((foo); (bar))' | shfmt
 docker build -t my:tag -f cmd/shfmt/Dockerfile .
 ```
 
+```py
+from sh import ifconfig
+print ifconfig("eth0")
+```
+
 ```sh
-
-
-```
-
-```
+pip install sh
+pip install -r requirements-dev.txt
+python sh.py test
+python sh.py test FunctionalTests.test_unicode_arg
+python sh.py test -e 3.4 FunctionalTests.test_unicode_arg
+python sh.py test
+coverage report
+coverage html
 ```
