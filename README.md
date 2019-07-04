@@ -6,6 +6,8 @@ https://github.com/mvdan/sh
 .py
 https://github.com/amoffat/sh
 
+http://amoffat.github.io/sh/
+
 .js
 
 .java
